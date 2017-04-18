@@ -1,7 +1,7 @@
 {
-  "name": "webpack-starter-kit",
+  "name": "data-table",
   "version": "1.0.0",
-  "description": "Starter Kit with SASS and Babel",
+  "description": "Data table with sorting, pagination and filtering",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server",
