@@ -1,10 +1,8 @@
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-
-var path = require('path');
-
+const path = require('path');
 module.exports = {
 	entry: './src/app.js',
 	output: {
@@ -12,6 +10,10 @@ module.exports = {
 		filename: 'app.bundle.js'
 	},
 	module: {
+		loaders: [
+			{ test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url?limit=10000&mimetype=application/font-woff' },
+			{ test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'file' }
+		],
 		rules: [
 			{
 				test: /\.scss$/,
@@ -48,15 +50,14 @@ module.exports = {
 		stats: 'errors-only',
 		open: true
 	},
+	externals: {
+		jquery: 'jQuery'
+	},
 	plugins: [
-		new webpack.ProvidePlugin({
-			$: 'jquery',
-			jQuery: 'jquery'
-		}),
 		new HtmlWebpackPlugin({
 			title: 'webpack-starter-kit',
 			hash: true,
-			template: './src/index.html', // Load a custom template (ejs by default see the FAQ for details)
+			template: './src/index.html'
 		}),
 		new ExtractTextPlugin({
 			filename: 'app.css',

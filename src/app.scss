@@ -1,0 +1,8 @@
+$primary-color: #607D8B;
+
+.btn {
+  background-color: $primary-color;
+}
+.btn:hover {
+    background-color: lighten($primary-color, 15%);  
+}
