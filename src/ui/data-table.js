@@ -22,7 +22,7 @@ export class DataTable {
 			 </tr>`;
 		}
 		return `
-			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+			<table class="centered striped">
 			<thead>
 				<tr>
 				${thHeaders}
