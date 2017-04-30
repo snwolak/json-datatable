@@ -22,11 +22,6 @@ export class DataTable {
 			tableContent += `
 			 </tr>`;
 		});
-		window.onload = function() {
-			document.getElementById('previous').addEventListener('click', function() {
-				console.log('previous test');
-			});
-		};
 		return `
 			<table class="centered striped">
 			<thead>
@@ -38,16 +33,15 @@ export class DataTable {
 				${tableContent}
 			</tbody>
 			</table>
-			<div class="center"> <ul class="pagination">
-    <li class="waves-effect"><a href="#" id="previous"><i class="material-icons">chevron_left</i></a></li>
-    <li class="waves-effect"><a href="#"><i class="material-icons" id="next">chevron_right</i></a></li>
-  </ul>
+			<div class="center"> 
+				<ul class="pagination">
+   					<li class="waves-effect"><a href="#" id="previous"><i class="material-icons">chevron_left</i></a></li>
+    				<li class="waves-effect"><a href="#"><i class="material-icons" id="next">chevron_right</i></a></li>
+  				</ul>
            </div>
 			
 		`;
 	}
 
-
 }
-
 

@@ -9,12 +9,14 @@ DataService.getJSON('MOCK_DATA_FULL.json');
 
 
 //PAGINATION PROTOTYPE
-let next = document.getElementById('next');
+let btn = document.getElementById('btn');
 let start = 0;
 let end = 5;
-next.addEventListener('click', function() {
+btn.addEventListener('click', function() {
 	start = start + 5;
 	end = end + 5;
 	console.log(start);
 	new TempDatabase(tempDB).tempArray(start, end);
 });
+console.log(document.getElementById('previous'));
+
