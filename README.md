@@ -1,6 +1,6 @@
 # data-table
 
-	LIVE: https://snwolak.github.io/data-table/dist/
+LIVE: https://snwolak.github.io/data-table/dist/
 
 # how to run
 
