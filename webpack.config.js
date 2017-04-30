@@ -55,7 +55,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			title: 'webpack-starter-kit',
+			title: 'data-table',
 			hash: true,
 			template: './src/index.html'
 		}),

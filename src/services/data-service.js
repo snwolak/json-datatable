@@ -1,4 +1,5 @@
 import{ TempDatabase } from'./temp-database.js';
+export let tempDB = [];
 export class DataService {
 	constructor(url) {
 	}
@@ -7,9 +8,10 @@ export class DataService {
 		xhr.open('GET', url);
 		xhr.onload = function() {
 			let data = JSON.parse(xhr.responseText);
-			data.map(x => {
-				return new TempDatabase(x).tempArray();
+			data.map((x, i)=> {
+				return tempDB.push(x);
 			});
+			new TempDatabase(tempDB).tempArray(0, 5);
 		};
 		xhr.send();
 	}

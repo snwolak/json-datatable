@@ -1,13 +1,11 @@
 import{ DataTable } from'./../ui/data-table.js';
-let array = [];
 export class TempDatabase {
 	constructor(data) {
 		this.data = data;
 	}
-	tempArray() {
-		let temp = 'id,First name, Last name, Date, Language, Job Title'.split(',');
-		array.push(this.data);
-		let test = new DataTable(temp, array);
+	tempArray(start, end) {
+		let headers = 'id,First name, Last name, Date, Language, Job Title'.split(',');
+		let test = new DataTable(headers, this.data.slice(start, end));
 		document.getElementById('output').innerHTML = test.tableTemplate();
 	}
 	send() {

@@ -1,10 +1,20 @@
 require('./app.scss');
 //import $ from'jquery';
-import{ DataService } from'./services/data-service.js';
-//import{ TempDatabase } from'./services/temp-database.js';
+import{ DataService, tempDB } from'./services/data-service.js';
+import{ TempDatabase } from'./services/temp-database.js';
 //import{ DataTable } from'./ui/data-table.js';
 
-//let temp = 'test1,test2'.split(',');
-DataService.getJSON('MOCK_DATA.json');
-//let test = new DataTable(temp);
-//document.getElementById('output').innerHTML = test.tableTemplate();
+//LOADING JSON FROM FILE
+DataService.getJSON('MOCK_DATA_FULL.json');
+
+
+//PAGINATION PROTOTYPE
+let next = document.getElementById('next');
+let start = 0;
+let end = 5;
+next.addEventListener('click', function() {
+	start = start + 5;
+	end = end + 5;
+	console.log(start);
+	new TempDatabase(tempDB).tempArray(start, end);
+});
