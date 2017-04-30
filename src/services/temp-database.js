@@ -13,14 +13,14 @@ export class TempDatabase {
 
 		//Pagination prototype
 		document.getElementById('previous').addEventListener('click', function() {
-			firstIndex = firstIndex - 5;
-			endIndex = endIndex - 5;
+			firstIndex === 0 ? firstIndex : firstIndex = firstIndex - 5;
+			endIndex === 5 ? endIndex : endIndex = endIndex - 5;
 			console.log(firstIndex);
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
 		});
 		document.getElementById('next').addEventListener('click', function() {
-			firstIndex = firstIndex + 5;
-			endIndex = endIndex + 5;
+			firstIndex === tempDB.length - 5 ? firstIndex : firstIndex = firstIndex + 5;
+			endIndex === tempDB.length ? endIndex : endIndex = endIndex + 5;
 			console.log(firstIndex);
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
 		});
