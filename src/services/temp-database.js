@@ -7,7 +7,7 @@ export class TempDatabase {
 		this.data = data;
 	}
 	tempArray(start, end) {
-		let headers = 'id,First name, Last name, Date, Language, Job Title'.split(',');
+		let headers = 'Id,First name,Last name,Date,Language,Job Title'.split(',');
 		let render = new DataTable(headers, this.data.slice(start, end));
 		document.getElementById('output').innerHTML = render.tableTemplate();
 

@@ -7,7 +7,7 @@ export class DataTable {
 	tableTemplate() {
 		let thHeaders = '';
 		this.headers.map(h => {
-			thHeaders += `<th>${h}</th>`;
+			thHeaders += `<th class="hoverable" id="${'tableHeader' + this.headers.indexOf(h)}">${h}</th>`;
 		});
 		let tableContent = '';
 		this.data.map(d => {
