@@ -5,6 +5,6 @@ import{ DataService } from'./services/data-service.js';
 //import{ DataTable } from'./ui/data-table.js';
 
 //LOADING JSON FROM FILE
-DataService.getJSON('MOCK_DATA_FULL.json');
+DataService.getJSON('MOCK_DATA.json');
 
 
