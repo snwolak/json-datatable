@@ -13,14 +13,11 @@ export class DataTable {
 		this.data.map(d => {
 			tableContent += `
 			 <tr>`;
-			tableContent += `<td>${d.id}</td>
-							 <td>${d.first_name}</td>
-							 <td>${d.last_name}</td>
-							 <td>${d.date}</td>
-							 <td>${d.language}</td>
-							 <td>${d.job_title}</td>`;
+			for(let i of this.headers) {
+				tableContent += `<td>${d[i]}</td>`;
+			}
 			tableContent += `
-			 </tr>`;
+			</tr>`;
 		});
 		return `
 			<table class="centered striped">

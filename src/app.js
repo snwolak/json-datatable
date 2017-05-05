@@ -6,5 +6,3 @@ import{ DataService } from'./services/data-service.js';
 
 //LOADING JSON FROM FILE
 DataService.getJSON('MOCK_DATA.json');
-
-

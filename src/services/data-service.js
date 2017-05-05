@@ -11,7 +11,7 @@ export class DataService {
 			data.map((x, i)=> {
 				return tempDB.push(x);
 			});
-			new TempDatabase(tempDB).tempArray(0, 5);
+			new TempDatabase(data).tempArray(0, 5);
 		};
 		xhr.send();
 	}
