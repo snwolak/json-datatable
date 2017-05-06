@@ -1,3 +1,4 @@
+import'babel-polyfill';
 require('./app.scss');
 //import $ from'jquery';
 import{ DataService } from'./services/data-service.js';
