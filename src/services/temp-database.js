@@ -13,6 +13,7 @@ export class TempDatabase {
 
 		//Pagination prototype
 		document.getElementById('previous').addEventListener('click', function() {
+			console.log(firstIndex);
 			firstIndex === 0 ? firstIndex : firstIndex = firstIndex - 5;
 			endIndex === 5 ? endIndex : endIndex = endIndex - 5;
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
@@ -38,7 +39,9 @@ export class TempDatabase {
 					}
 					return 0;
 				});
-				new TempDatabase(tempSort).tempArray(0, 5);
+				firstIndex = 0;
+				endIndex = 5;
+				new TempDatabase(tempSort).tempArray(firstIndex, endIndex);
 				document.getElementById('tableHeader' + i).onclick = reverseSort;
 			}
 			function reverseSort() {
@@ -54,7 +57,9 @@ export class TempDatabase {
 					}
 					return 0;
 				});
-				new TempDatabase(tempSort).tempArray(0, 5);
+				firstIndex = 0;
+				endIndex = 5;
+				new TempDatabase(tempSort).tempArray(firstIndex, endIndex);
 				document.getElementById('tableHeader' + i).onclick = sort;
 			}
 			return document.getElementById('tableHeader' + i).onclick = sort;
