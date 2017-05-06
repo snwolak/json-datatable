@@ -1,4 +1,3 @@
-//import{ TempDatabase } from'./../services/temp-database.js';
 export class DataTable {
 	constructor(headers, data) {
 		this.headers = headers;

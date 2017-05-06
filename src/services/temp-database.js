@@ -22,6 +22,43 @@ export class TempDatabase {
 			endIndex === tempDB.length || endIndex > tempDB.length ? endIndex : endIndex = endIndex + 5;
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
 		});
+		//Adds Event Listener to table headers
+		headers.map((x, i) => {
+		//Sorting ProtoType
+			function sort() {
+				console.log('sort');
+				let tempSort = tempDB.sort(function(a, b) {
+					const property = headers[i];
+					property;
+					if(a[headers[i]] < b[headers[i]]) {
+						return -1;
+					}
+					if(a[headers[i]] > b[headers[i]]) {
+						return 1;
+					}
+					return 0;
+				});
+				new TempDatabase(tempSort).tempArray(0, 5);
+				document.getElementById('tableHeader' + i).onclick = reverseSort;
+			}
+			function reverseSort() {
+				console.log('reverse ');
+				let tempSort = tempDB.sort(function(a, b) {
+					const property = headers[i];
+					property;
+					if(a[headers[i]] < b[headers[i]]) {
+						return 1;
+					}
+					if(a[headers[i]] > b[headers[i]]) {
+						return -1;
+					}
+					return 0;
+				});
+				new TempDatabase(tempSort).tempArray(0, 5);
+				document.getElementById('tableHeader' + i).onclick = sort;
+			}
+			return document.getElementById('tableHeader' + i).onclick = sort;
+		});
 	}
 	send() {
 		//document.getElementById('output').innerHTML += `<p>${this.data.id} ${this.data.first_name}</p>`;
