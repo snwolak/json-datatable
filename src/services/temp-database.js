@@ -18,8 +18,8 @@ export class TempDatabase {
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
 		});
 		document.getElementById('next').addEventListener('click', function() {
-			firstIndex === tempDB.length - 5 ? firstIndex : firstIndex = firstIndex + 5;
-			endIndex === tempDB.length ? endIndex : endIndex = endIndex + 5;
+			firstIndex === tempDB.length - 5 || firstIndex + 5 > tempDB.length ? firstIndex : firstIndex = firstIndex + 5;
+			endIndex === tempDB.length || endIndex > tempDB.length ? endIndex : endIndex = endIndex + 5;
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
 		});
 	}
