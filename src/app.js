@@ -9,4 +9,3 @@ import{ DataService } from'./services/data-service.js';
 DataService.getJSON('MOCK_DATA.json');
 
 //document.getElementById('test').innerHTML += moment('2016-01-01');
-

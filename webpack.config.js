@@ -51,6 +51,7 @@ module.exports = {
 		open: true
 	},
 	externals: {
+		$: 'jquery',
 		jquery: 'jQuery'
 	},
 	plugins: [

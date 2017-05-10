@@ -23,8 +23,9 @@ export class DataTable {
 		});
 		return `
 			
-				<div class="row">
-					<div class="col s4 search-wrapper card">
+				<div class="row card">
+					
+					<div class="col s4 search-wrapper right">
 						<input id="tableSearch">
 						<i id="tableSearchButton" class="material-icons">${temp.length === 0 ? 'search' : 'close'}</i>
 					</div>
@@ -43,7 +44,7 @@ export class DataTable {
 				${tableContent}
 			</tbody>
 			</table>
-			<div class="center"> 
+			<div class="center card"> 
 				<ul class="pagination">
    					<li class="waves-effect"><a href="#" id="previous"><i class="material-icons">chevron_left</i></a></li>
     				<li class="waves-effect"><a href="#"><i class="material-icons" id="next">chevron_right</i></a></li>

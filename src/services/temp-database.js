@@ -1,6 +1,6 @@
 import{ DataTable } from'./../ui/data-table.js';
 import{ tempDB } from'./data-service.js';
-//import moment from'moment';
+//import $ from'jquery';
 let firstIndex = 0;
 let endIndex = 5;
 export let temp = [];
