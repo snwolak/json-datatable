@@ -1,3 +1,5 @@
+import moment from'moment';
+
 export class DataTable {
 	constructor(headers, data) {
 		this.headers = headers;
@@ -6,24 +8,35 @@ export class DataTable {
 	tableTemplate() {
 		let thHeaders = '';
 		this.headers.map(h => {
-			thHeaders += `<th class="hoverable" id="${'tableHeader' + this.headers.indexOf(h)}">${h}</th>`;
+			let headToUpper = h.toString().replace(/[^A-Z0-9]/gi, ' ');
+			thHeaders += `<th class="hoverable" id="${'tableHeader' + this.headers.indexOf(h)}">${headToUpper.slice(0, 1).toUpperCase() + headToUpper.slice(1)}</th>`;
 		});
 		let tableContent = '';
 		this.data.map(d => {
 			tableContent += `
 			 <tr>`;
 			for(let i of this.headers) {
-				tableContent += `<td>${d[i]}</td>`;
+				i.includes('date') === true ? tableContent += `<td>${moment(d[i]).format('LL')}</td>` : tableContent += `<td>${d[i]}</td>`;
 			}
 			tableContent += `
 			</tr>`;
 		});
 		return `
+			
+				<div class="row">
+					<div class="col s4">
+						<input type="text" name="search" placeholder="search">
+					</div>
+				</div>
+			
 			<table class="centered striped">
 			<thead>
 				<tr>
-				${thHeaders}
+					${thHeaders}
 				</tr>
+				<tr>
+					
+				</tr>	
 			</thead>
 			<tbody>
 				${tableContent}

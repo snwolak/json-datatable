@@ -1,5 +1,6 @@
 import{ DataTable } from'./../ui/data-table.js';
 import{ tempDB } from'./data-service.js';
+//import moment from'moment';
 let firstIndex = 0;
 let endIndex = 5;
 export class TempDatabase {
@@ -10,10 +11,8 @@ export class TempDatabase {
 		let headers = Object.keys(this.data[0]);
 		let render = new DataTable(headers, this.data.slice(start, end));
 		document.getElementById('output').innerHTML = render.tableTemplate();
-
 		//Pagination prototype
 		document.getElementById('previous').addEventListener('click', function() {
-			console.log(firstIndex);
 			firstIndex === 0 ? firstIndex : firstIndex = firstIndex - 5;
 			endIndex === 5 ? endIndex : endIndex = endIndex - 5;
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
@@ -27,7 +26,6 @@ export class TempDatabase {
 		headers.map((x, i) => {
 		//Sorting ProtoType
 			function sort() {
-				console.log('sort');
 				let tempSort = tempDB.sort(function(a, b) {
 					const property = headers[i];
 					property;
@@ -43,9 +41,9 @@ export class TempDatabase {
 				endIndex = 5;
 				new TempDatabase(tempSort).tempArray(firstIndex, endIndex);
 				document.getElementById('tableHeader' + i).onclick = reverseSort;
+
 			}
 			function reverseSort() {
-				console.log('reverse ');
 				let tempSort = tempDB.sort(function(a, b) {
 					const property = headers[i];
 					property;
