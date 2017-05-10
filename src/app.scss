@@ -1,5 +1,10 @@
-$primary-color: #607D8B;
-
+$primary-color: #2196f3;
+body {
+  background-color: $primary-color;
+}
+table {
+  background-color: #FFF;
+}
 .btn {
   background-color: $primary-color;
 }

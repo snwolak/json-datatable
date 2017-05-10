@@ -30,7 +30,7 @@ export class DataTable {
 					</div>
 				</div>
 			
-			<table class="centered striped">
+			<table class="centered responsive-table">
 			<thead>
 				<tr>
 					${thHeaders}
