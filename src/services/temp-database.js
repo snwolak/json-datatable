@@ -3,7 +3,7 @@ import{ tempDB } from'./data-service.js';
 //import moment from'moment';
 let firstIndex = 0;
 let endIndex = 5;
-let temp = [];
+export let temp = [];
 export class TempDatabase {
 	constructor(data) {
 		this.data = data;
@@ -21,26 +21,38 @@ export class TempDatabase {
 			new TempDatabase(db).tempArray(firstIndex, endIndex);
 		});
 		document.getElementById('next').addEventListener('click', function() {
-			firstIndex === tempDB.length - 5 || firstIndex + 5 > tempDB.length ? firstIndex : firstIndex = firstIndex + 5;
-			endIndex === tempDB.length || endIndex > tempDB.length ? endIndex : endIndex = endIndex + 5;
+			firstIndex === db.length - 5 || firstIndex + 5 > db.length ? firstIndex : firstIndex = firstIndex + 5;
+			endIndex === db.length || endIndex > db.length ? endIndex : endIndex = endIndex + 5;
 			new TempDatabase(db).tempArray(firstIndex, endIndex);
+			document.getElementById('tableSearchButton').innerHTML === 'close' ? document.getElementById('tableSearchButton').innerHTML = 'close' : document.getElementById('tableSearchButton').innerHTML = 'search';
+
 		});
 		//Search prototype
 		function search() {
-			temp = [];
-			tempDB.map(x => {
-				let string = Object.values(x).join(' ').toLowerCase();
-				let input = document.getElementById('tableSearch').value.toLowerCase().replace(/ /g, '[^]*');
-				if(string.match(input)) {
-					temp.push(x);
-					console.log(JSON.stringify(x));
-				}
-			});
-			firstIndex = 0;
-			endIndex = 5;
-			new TempDatabase(temp).tempArray(firstIndex, endIndex);
+			if(document.getElementById('tableSearch').value.length === 0) {
+				firstIndex = 0;
+				endIndex = 5;
+				temp = [];
+				new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
+				document.getElementById('tableSearchButton').innerHTML = 'search';
+				return;
+			} else {
+				temp = [];
+				tempDB.map(x => {
+					let string = Object.values(x).join(' ').toLowerCase();
+					let input = document.getElementById('tableSearch').value.toLowerCase().replace(/ /g, '[^]*');
+					if(string.match(input)) {
+						temp.push(x);
+					}
+				});
+				firstIndex = 0;
+				endIndex = 5;
+				new TempDatabase(temp).tempArray(firstIndex, endIndex);
+				document.getElementById('tableSearchButton').innerHTML = 'close';
+			}
 		}
 		document.getElementById('tableSearchButton').onclick = search;
+		console.log(document.getElementById('tableSearchButton').innerHTML);
 		//Adds Event Listener to table headers
 		headers.map((x, i) => {
 		//Sorting ProtoType

@@ -1,5 +1,5 @@
 import moment from'moment';
-
+import{ temp } from'../services/temp-database.js';
 export class DataTable {
 	constructor(headers, data) {
 		this.headers = headers;
@@ -26,7 +26,7 @@ export class DataTable {
 				<div class="row">
 					<div class="col s4 search-wrapper card">
 						<input id="tableSearch">
-						<i id="tableSearchButton" class="material-icons">search</i>
+						<i id="tableSearchButton" class="material-icons">${temp.length === 0 ? 'search' : 'close'}</i>
 					</div>
 				</div>
 			
