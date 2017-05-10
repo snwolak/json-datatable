@@ -22,13 +22,27 @@ export class TempDatabase {
 			endIndex === tempDB.length || endIndex > tempDB.length ? endIndex : endIndex = endIndex + 5;
 			new TempDatabase(tempDB).tempArray(firstIndex, endIndex);
 		});
+		//Search prototype
+		function search() {
+			let temp = [];
+			tempDB.map(x => {
+				let string = Object.values(x).join(' ').toLowerCase();
+				let input = document.getElementById('tableSearch').value.toLowerCase().replace(/ /g, '[^]*');
+				if(string.match(input)) {
+					temp.push(x);
+					console.log(JSON.stringify(x));
+				}
+			});
+			firstIndex = 0;
+			endIndex = 5;
+			new TempDatabase(temp).tempArray(firstIndex, endIndex);
+		}
+		document.getElementById('tableSearchButton').onclick = search;
 		//Adds Event Listener to table headers
 		headers.map((x, i) => {
 		//Sorting ProtoType
 			function sort() {
 				let tempSort = tempDB.sort(function(a, b) {
-					const property = headers[i];
-					property;
 					if(a[headers[i]] < b[headers[i]]) {
 						return -1;
 					}
@@ -45,8 +59,6 @@ export class TempDatabase {
 			}
 			function reverseSort() {
 				let tempSort = tempDB.sort(function(a, b) {
-					const property = headers[i];
-					property;
 					if(a[headers[i]] < b[headers[i]]) {
 						return 1;
 					}

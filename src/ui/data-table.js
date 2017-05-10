@@ -24,8 +24,9 @@ export class DataTable {
 		return `
 			
 				<div class="row">
-					<div class="col s4">
-						<input type="text" name="search" placeholder="search">
+					<div class="col s4 search-wrapper card">
+						<input id="tableSearch">
+						<i id="tableSearchButton" class="material-icons">search</i>
 					</div>
 				</div>
 			
