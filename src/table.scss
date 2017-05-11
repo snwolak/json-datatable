@@ -11,6 +11,28 @@ table {
     padding: 15px;
   }
 }
+.row {
+  padding: 10px;
+}
+#tableSearchBar {
+  margin: 0;
+}
+#table {
+  margin: 0;
+}
+#tableFooter {
+  i.material-icons {
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    font-size: 36px;
+  }
+  .row {
+    border: 0px;
+    padding: 15px;
+  }
+}
+
 .btn {
   background-color: $primary-color;
 }
@@ -23,7 +45,7 @@ table {
 }
 .search-wrapper i.material-icons {
     position: absolute;
-    top: 25px;
+    top: 35px;
     right: 15px;
     cursor: pointer;
 }

@@ -23,7 +23,7 @@ export class Pagination {
 							<option value="25">25</option>
 							<option value="50">50</option>
 						</select>
-						<label>Entries on page</label>
+						<label>Entries</label>
 					</div> 
            		</div>`;
 	}
