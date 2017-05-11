@@ -1,4 +1,4 @@
-import moment from'moment';
+import moment from'moment/src/moment';
 export class DataTable {
 	constructor(headers, data) {
 		this.headers = headers;
