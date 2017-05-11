@@ -18,7 +18,7 @@ export class Sorting {
 				});
 				let firstIndex = 0;
 				let endIndex = Number(document.getElementById('tableSelect').value);
-				new TempDatabase(db).tempArray(firstIndex, endIndex);
+				new TempDatabase(db).renderTable(firstIndex, endIndex);
 				Pagination.add(firstIndex, endIndex);
 				document.getElementById('tableHeader' + i).onclick = reverseSort;
 			}
@@ -34,7 +34,7 @@ export class Sorting {
 				});
 				let firstIndex = 0;
 				let endIndex = Number(document.getElementById('tableSelect').value);
-				new TempDatabase(db).tempArray(firstIndex, endIndex);
+				new TempDatabase(db).renderTable(firstIndex, endIndex);
 				Pagination.add(firstIndex, endIndex);
 				document.getElementById('tableHeader' + i).onclick = sort;
 			}

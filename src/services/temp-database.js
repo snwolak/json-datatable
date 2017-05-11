@@ -10,7 +10,7 @@ export class TempDatabase {
 		this.data = data;
 		//this.tableId = tableId;
 	}
-	tempArray(start, end) {
+	renderTable(start, end) {
 		let headers = Object.keys(this.data[0]);
 		let render = new DataTable(headers, this.data.slice(start, end));
 		document.getElementById(passingTableId).innerHTML = render.tableTemplate();

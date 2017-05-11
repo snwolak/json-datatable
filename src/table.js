@@ -27,7 +27,7 @@ export class Table {
 			$('select').material_select();
 			$('#tableSelect').change(function() {
 				end = Number(document.getElementById('tableSelect').value);
-				new TempDatabase(db).tempArray(start, end);
+				new TempDatabase(db).renderTable(start, end);
 				Pagination.add(start, end);
 			});
 		});

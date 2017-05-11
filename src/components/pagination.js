@@ -32,12 +32,12 @@ export class Pagination {
 		document.getElementById('previous').addEventListener('click', function() {
 			firstIndex === 0 ? firstIndex : firstIndex = firstIndex - numOfPages;
 			lastIndex === numOfPages ? lastIndex : lastIndex = lastIndex - numOfPages;
-			new TempDatabase(db).tempArray(firstIndex, lastIndex);
+			new TempDatabase(db).renderTable(firstIndex, lastIndex);
 		});
 		document.getElementById('next').addEventListener('click', function() {
 			firstIndex === db.length - numOfPages || firstIndex + numOfPages > db.length ? firstIndex : firstIndex = firstIndex + numOfPages;
 			lastIndex === db.length || lastIndex > db.length ? lastIndex : lastIndex = lastIndex + numOfPages;
-			new TempDatabase(db).tempArray(firstIndex, lastIndex);
+			new TempDatabase(db).renderTable(firstIndex, lastIndex);
 			console.log('firstIndex: ' + firstIndex);
 			console.log('lastIndex: ' + lastIndex);
 		});

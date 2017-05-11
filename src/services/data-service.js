@@ -9,7 +9,7 @@ export class DataService {
 		xhr.onload = function() {
 			let data = JSON.parse(xhr.responseText);
 			tempDB = data;
-			new TempDatabase(data, tableId).tempArray(0, 5);
+			new TempDatabase(data, tableId).renderTable(0, 5);
 		};
 		xhr.send();
 	}
