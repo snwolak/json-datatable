@@ -1,9 +1,11 @@
 import{ DataTable } from'./../ui/data-table.js';
 import{ tempDB } from'./data-service.js';
-//import $ from'jquery';
-let firstIndex = 0;
-let endIndex = 5;
+//import{ Pagination } from'./pagination.js';
+import $ from'jquery';
+export let firstIndex = 0;
+export let endIndex = 5;
 export let temp = [];
+export let db;
 export class TempDatabase {
 	constructor(data) {
 		this.data = data;
@@ -12,7 +14,7 @@ export class TempDatabase {
 		let headers = Object.keys(this.data[0]);
 		let render = new DataTable(headers, this.data.slice(start, end));
 		document.getElementById('output').innerHTML = render.tableTemplate();
-		let db;
+		//Pagination.paginationButtons();
 		temp.length === 0 ? db = tempDB : db = temp;
 		//Pagination prototype
 		document.getElementById('previous').addEventListener('click', function() {
@@ -25,7 +27,6 @@ export class TempDatabase {
 			endIndex === db.length || endIndex > db.length ? endIndex : endIndex = endIndex + 5;
 			new TempDatabase(db).tempArray(firstIndex, endIndex);
 			document.getElementById('tableSearchButton').innerHTML === 'close' ? document.getElementById('tableSearchButton').innerHTML = 'close' : document.getElementById('tableSearchButton').innerHTML = 'search';
-
 		});
 		//Search prototype
 		function search() {
@@ -52,7 +53,6 @@ export class TempDatabase {
 			}
 		}
 		document.getElementById('tableSearchButton').onclick = search;
-		console.log(document.getElementById('tableSearchButton').innerHTML);
 		//Adds Event Listener to table headers
 		headers.map((x, i) => {
 		//Sorting ProtoType
@@ -89,6 +89,10 @@ export class TempDatabase {
 			}
 			return document.getElementById('tableHeader' + i).onclick = sort;
 		});
+		$(document).ready(function() {
+			$('select').material_select();
+		});
+
 	}
 	send() {
 		//document.getElementById('output').innerHTML += `<p>${this.data.id} ${this.data.first_name}</p>`;

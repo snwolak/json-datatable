@@ -25,13 +25,14 @@ export class DataTable {
 			
 				<div class="row card">
 					
-					<div class="col s4 search-wrapper right">
+					<div class="col s12 search-wrapper right">
 						<input id="tableSearch">
 						<i id="tableSearchButton" class="material-icons">${temp.length === 0 ? 'search' : 'close'}</i>
+						
 					</div>
 				</div>
 			
-			<table class="centered responsive-table">
+			<table class="centered responsive-table striped">
 			<thead>
 				<tr>
 					${thHeaders}
@@ -44,11 +45,25 @@ export class DataTable {
 				${tableContent}
 			</tbody>
 			</table>
-			<div class="center card"> 
-				<ul class="pagination">
-   					<li class="waves-effect"><a href="#" id="previous"><i class="material-icons">chevron_left</i></a></li>
-    				<li class="waves-effect"><a href="#"><i class="material-icons" id="next">chevron_right</i></a></li>
-  				</ul>
+			<div class="row center card">
+				<div class="col s4">
+					<p><h6>Result placeholder</h6></p>
+					</div>
+				<div class="col s4">
+					<ul class="pagination">
+						<li class="waves-effect"><a href="#" id="previous"><i class="material-icons">chevron_left</i></a></li>
+						<li class="waves-effect"><a href="#"><i class="material-icons" id="next">chevron_right</i></a></li>
+					</ul>
+				</div>
+					<div class="input-field col s2 right">
+						<select>
+							<option value="5">5</option>
+							<option value="10">10</option>
+							<option value="25">25</option>
+							<option value="50">50</option>
+						</select>
+						<label>Entries on page</label>
+					</div> 
            </div>
 			
 		`;
