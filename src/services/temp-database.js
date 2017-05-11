@@ -3,8 +3,10 @@ import{ Sorting } from'./sorting.js';
 import{ Search } from'./../components/search.js';
 import{ passingTableId } from'./../table.js';
 
+
 export let temp = [];
 export let db;
+export let dbLength;
 export class TempDatabase {
 	constructor(data) {
 		this.data = data;
@@ -16,6 +18,7 @@ export class TempDatabase {
 		document.getElementById(passingTableId).innerHTML = render.tableTemplate();
 		temp = [];
 		temp.length === 0 ? db = this.data : db = temp;
+		dbLength = db.length;
 		Sorting.add(headers);
 		Search.add();
 	}

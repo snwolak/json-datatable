@@ -5,8 +5,7 @@ import{ DataService } from'./services/data-service.js';
 import{ Pagination } from'./components/pagination.js';
 import{ TempDatabase, db } from'./services/temp-database.js';
 import{ Search } from'./components/search.js';
-//import{ DataTable } from'./components/data-table.js';
-//LOADING JSON FROM FILE
+
 export let passingTableId;
 export class Table {
 	constructor(url, searchBarId, tableId, footerId) {
@@ -18,7 +17,7 @@ export class Table {
 	create() {
 		DataService.getJSON(this.url, this.tableId);
 		document.getElementById(this.searchBarId).innerHTML = Search.HTML();
-		document.getElementById(this.footerId).innerHTML = Pagination.HTML();
+		document.getElementById(this.footerId).innerHTML = Pagination.HTML(0, 5, 5);
 		passingTableId = this.tableId;
 		$(document).ready(function() {
 			let start = 0;
