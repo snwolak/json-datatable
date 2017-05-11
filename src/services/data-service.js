@@ -3,16 +3,15 @@ export let tempDB = [];
 export class DataService {
 	constructor(url) {
 	}
-	static getJSON(url) {
+	static getJSON(url, tableId) {
 		let xhr = new XMLHttpRequest();
 		xhr.open('GET', url);
 		xhr.onload = function() {
 			let data = JSON.parse(xhr.responseText);
-			data.map((x, i)=> {
-				return tempDB.push(x);
-			});
-			new TempDatabase(data).tempArray(0, 5);
+			tempDB = data;
+			new TempDatabase(data, tableId).tempArray(0, 5);
 		};
 		xhr.send();
 	}
 }
+
