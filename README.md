@@ -19,7 +19,7 @@
 import{ Table } from'./table.js';
 ```
 
-* Create new Table class.
+* Create new instance of Table class.
         
 ```js
 new Table(urlToJSONfile, HTMLIdForSearchBar, HTMLIdForTable, HTMLIdForFooter).create();
