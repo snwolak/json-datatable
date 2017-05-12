@@ -1,8 +1,17 @@
-# data-table
+# json-datatable
 
 [Demo](https://snwolak.github.io/data-table/dist/)
 
-Generates table dynamically from JSON file.
+ES6 based repo for generating HTML table from JSON file.
+
+![Demo scree](./README/demo.png)
+
+# Features
+
+* Sorting
+* Pagination
+* Filtering by one and multiple values.
+* Detects Date property by reading property names. Date to properly work with momentjs has to be in ISO 8601 format.
 
 
 # Requirements
