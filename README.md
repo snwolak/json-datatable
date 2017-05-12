@@ -1,6 +1,6 @@
 # json-datatable
 
-[Demo](https://snwolak.github.io/data-table/dist/)
+[Demo](https://snwolak.github.io/json-datatable/dist/)
 
 ES6 based repo for generating HTML table from JSON file.
 
