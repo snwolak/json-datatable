@@ -21,9 +21,10 @@ export class Search {
 
 		if(document.getElementById('tableSearch').value.length === 0) {
 			let firstIndex = 0;
-			let endIndex = Number(document.getElementById('tableSelect').value);
-			new TempDatabase(tempDB).renderTable(firstIndex, endIndex);
-			Pagination.add(firstIndex, endIndex);
+			let lastIndex = Number(document.getElementById('tableSelect').value);
+			new TempDatabase(tempDB).renderTable(firstIndex, lastIndex);
+			Pagination.add(firstIndex, lastIndex);
+			Pagination.paginationResults(firstIndex, lastIndex, db.length);
 			document.getElementById('tableSearchButton').innerHTML = 'search';
 		} else {
 			db.map(x => {
@@ -34,10 +35,11 @@ export class Search {
 				}
 			});
 			let firstIndex = 0;
-			let endIndex = Number(document.getElementById('tableSelect').value);
+			let lastIndex = Number(document.getElementById('tableSelect').value);
 			document.getElementById('tableSearch').value = '';
-			new TempDatabase(temp).renderTable(firstIndex, endIndex);
-			Pagination.add(firstIndex, endIndex);
+			new TempDatabase(temp).renderTable(firstIndex, lastIndex);
+			Pagination.add(firstIndex, lastIndex);
+			Pagination.paginationResults(firstIndex, lastIndex, db.length);
 			document.getElementById('tableSearchButton').innerHTML = 'close';
 		}
 

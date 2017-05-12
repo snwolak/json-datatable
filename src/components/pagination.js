@@ -7,7 +7,7 @@ export class Pagination {
 	}
 	static HTML() {
 		return `<div class="row center card">
-				<div class="col s4">
+				<div id="paginationResults" class="col s4">
 					
 					</div>
 				<div class="col s4">
@@ -33,18 +33,16 @@ export class Pagination {
 			firstIndex === 0 ? firstIndex : firstIndex = firstIndex - numOfPages;
 			lastIndex === numOfPages ? lastIndex : lastIndex = lastIndex - numOfPages;
 			new TempDatabase(db).renderTable(firstIndex, lastIndex);
-			Pagination.HTML(firstIndex, lastIndex, db.length);
+			Pagination.paginationResults(firstIndex, lastIndex, db.length);
 		});
 		document.getElementById('next').addEventListener('click', function() {
 			firstIndex === db.length - numOfPages || firstIndex + numOfPages > db.length ? firstIndex : firstIndex = firstIndex + numOfPages;
 			lastIndex === db.length || lastIndex > db.length ? lastIndex : lastIndex = lastIndex + numOfPages;
 			new TempDatabase(db).renderTable(firstIndex, lastIndex);
-			Pagination.HTML(firstIndex, lastIndex, db.length);
+			Pagination.paginationResults(firstIndex, lastIndex, db.length);
 		});
 	}
-
-	static numOfPages(num) {
-
+	static paginationResults(firstIndex, lastIndex, results) {
+		document.getElementById('paginationResults').innerHTML = `<p><h6>Showing ${firstIndex} to ${lastIndex > results ? results : lastIndex} of ${results} entries </h6></p>`;
 	}
-
 }

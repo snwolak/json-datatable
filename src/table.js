@@ -27,6 +27,7 @@ export class Table {
 			$('#tableSelect').change(function() {
 				end = Number(document.getElementById('tableSelect').value);
 				new TempDatabase(db).renderTable(start, end);
+				Pagination.paginationResults(start, end, db.length);
 				Pagination.add(start, end);
 			});
 		});

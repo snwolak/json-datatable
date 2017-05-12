@@ -1,4 +1,6 @@
 import{ TempDatabase } from'./temp-database.js';
+import{ Pagination } from'./../components/pagination.js';
+
 export let tempDB = [];
 export class DataService {
 	constructor(url) {
@@ -10,6 +12,7 @@ export class DataService {
 			let data = JSON.parse(xhr.responseText);
 			tempDB = data;
 			new TempDatabase(data).renderTable(0, 5);
+			Pagination.paginationResults(0, 5, data.length);
 		};
 		xhr.send();
 	}
