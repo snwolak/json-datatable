@@ -6,6 +6,7 @@ table {
   background-color: #FFF;
   th{
     padding: 15px;
+    cursor: pointer;
   }
   td {
     padding: 15px;
@@ -20,17 +21,21 @@ table {
 #table {
   margin: 0;
 }
+
+  
+
 #tableFooter {
+  
+  #paginationResults {
+    margin-top: 10px;
+  }
   i.material-icons {
-    display: flex;
-    flex-wrap: nowrap;
-    align-content: center;
     font-size: 36px;
   }
   .row {
     border: 0px;
-    padding: 15px;
-  }
+    background-color: #fff;
+    }
 }
 
 .btn {

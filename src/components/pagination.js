@@ -6,17 +6,16 @@ export class Pagination {
 		this.lastIndex = lastIndex;
 	}
 	static HTML() {
-		return `<div class="row center card">
-				<div id="paginationResults" class="col s4">
-					
+		return `<div class="row">
+					<div id="paginationResults" class="center col m12 xl4 l4 s12 ">
 					</div>
-				<div class="col s4">
-					<ul class="pagination">
+				<div class="center col m12 xl4 l4 s12">
+					<ul class="pagination ">
 						<li class="waves-effect"><a href="#" id="previous"><i class="material-icons">chevron_left</i></a></li>
 						<li class="waves-effect"><a href="#"><i class="material-icons" id="next">chevron_right</i></a></li>
 					</ul>
 				</div>
-					<div class="input-field col s2 right">
+					<div class="input-field col m12 xl4 l4 s12">
 						<select id="tableSelect">
 							<option value="5">5</option>
 							<option value="10">10</option>
@@ -43,6 +42,6 @@ export class Pagination {
 		});
 	}
 	static paginationResults(firstIndex, lastIndex, results) {
-		document.getElementById('paginationResults').innerHTML = `<p><h6>Showing ${firstIndex} to ${lastIndex > results ? results : lastIndex} of ${results} entries </h6></p>`;
+		document.getElementById('paginationResults').innerHTML = `<p class="center-align"><h6>Showing ${firstIndex} to ${lastIndex > results ? results : lastIndex} of ${results} entries </h6></p>`;
 	}
 }
