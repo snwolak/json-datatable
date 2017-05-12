@@ -4,7 +4,7 @@
 
 ES6 based repo for generating HTML table from JSON file.
 
-![Demo scree](./README/demo.png)
+![Demo screen](./README/demo.png)
 
 # Features
 
