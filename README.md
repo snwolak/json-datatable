@@ -22,7 +22,7 @@ import{ Table } from'./table.js';
 * Create new Table class.
         
 ```js
-new Table(urlToJSONfile, divIdForSearchBar, divIdForTable, divIdForFooter).create();
+new Table(urlToJSONfile, HTMLIdForSearchBar, HTMLIdForTable, HTMLIdForFooter).create();
 ```
 * Modify table styles in table.scss file.
 # Setup for this project
